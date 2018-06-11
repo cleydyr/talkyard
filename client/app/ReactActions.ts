@@ -239,9 +239,14 @@ export function acceptAnswer(postId: number) {
 
 export function unacceptAnswer() {
   Server.unacceptAnswer(() => {
-    ReactDispatcher.handleViewAction({
-      actionType: actionTypes.UnacceptAnswer,
-    });
+    unacceptAnswerClientSideOnly();
+  });
+}
+
+
+export function unacceptAnswerClientSideOnly() {
+  ReactDispatcher.handleViewAction({
+    actionType: actionTypes.UnacceptAnswer,
   });
 }
 
